@@ -10,9 +10,8 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -41,8 +40,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        user.setCreatedTime(Timestamp.from(Instant.now()));
-        user.setUpdatedTime(Timestamp.from(Instant.now()));
+        user.setCreatedTime(LocalDateTime.now());
+        user.setUpdatedTime(LocalDateTime.now());
         userMapper.insert(user);
     }
 
@@ -53,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(User user) {
-        user.setUpdatedTime(Timestamp.from(Instant.now()));
+        user.setUpdatedTime(LocalDateTime.now());
         userMapper.update(user);
     }
 }

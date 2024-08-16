@@ -26,13 +26,13 @@ public class LoginController {
         if (e != null){
             Map<String, Object> claims = new HashMap<>();
             claims.put("id", e.getId());
-            claims.put("name", e.getPhone());
+            claims.put("phone", e.getPhone());
             claims.put("username", e.getUsername());
             String jwt = JwtUtils.generateJwt(claims); //jwt包含了当前登录的管理员信息
+            log.info("令牌生成成功");
             return Result.success(jwt);
         }
         //登录失败, 返回错误信息
         return Result.error("用户名或密码错误");
     }
-
 }

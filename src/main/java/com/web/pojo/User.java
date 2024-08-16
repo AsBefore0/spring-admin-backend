@@ -3,7 +3,7 @@ package com.web.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -12,9 +12,9 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private Byte gender;
+    private Short gender;
     private String email;
     private String phone;
-    private Timestamp createdTime;
-    private Timestamp updatedTime;
+    private LocalDateTime createdTime;
+    private LocalDateTime updatedTime;
 }

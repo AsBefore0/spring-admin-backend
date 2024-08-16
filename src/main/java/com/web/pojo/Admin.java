@@ -12,6 +12,6 @@ public class Admin {
     private String username;
     private String password;
     private String phone;
-    private Byte role;
+    private Short role;
 }
 

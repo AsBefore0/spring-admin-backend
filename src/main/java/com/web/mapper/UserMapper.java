@@ -1,10 +1,7 @@
 package com.web.mapper;
 
 import com.web.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -38,5 +35,6 @@ public interface UserMapper {
     User getById(Integer id);
 
     // 更新用户
+    @Update("update tb_user set gender = #{gender} where id = #{id}")
     void update(User user);
 }

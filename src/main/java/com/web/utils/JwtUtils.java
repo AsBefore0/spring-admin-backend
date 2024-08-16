@@ -9,7 +9,7 @@ import java.util.Map;
 public class JwtUtils {
 
     private static final String signKey = "as_before123456";
-    private static final Long expire = 60000L; // 毫秒为单位, 当前为一分钟
+    private static final Long expire = 30000L; // 毫秒为单位
 
     // 生成JWT令牌
     public static String generateJwt(Map<String, Object> claims){

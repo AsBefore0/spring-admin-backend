@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.web.pojo.Result;
 import com.web.utils.JwtUtils;
 
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -54,7 +55,6 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             response.getWriter().write(notLogin);
             return false;
         }
-
         //6.放行。
         log.info("令牌合法, 放行");
         return true;
