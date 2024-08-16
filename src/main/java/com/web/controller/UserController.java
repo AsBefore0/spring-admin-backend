@@ -36,7 +36,7 @@ public class UserController {
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
         log.info("批量删除操作, ids:{}",ids);
-        userService.delete(ids);
+        int nums = userService.delete(ids);
         return Result.success();
     }
 

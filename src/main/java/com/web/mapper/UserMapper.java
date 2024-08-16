@@ -22,7 +22,7 @@ public interface UserMapper {
 
 
     // 批量删除
-    void delete(List<Integer> ids);
+    int delete(List<Integer> ids);
 
 
     // 新增员工

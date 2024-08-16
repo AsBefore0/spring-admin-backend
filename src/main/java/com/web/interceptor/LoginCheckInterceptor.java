@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,12 +28,11 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             log.info("登录操作, 放行...");
             return true;
         }
+        // 3.获取请求头中的Authorization字段。
+        String authorizationHeader = request.getHeader("Authorization");
 
-        //3.获取请求头中的令牌（token）。
-        String jwt = request.getHeader("token");
-
-        //4.判断令牌是否存在，如果不存在，返回错误结果（未登录）。
-        if(!StringUtils.hasLength(jwt)){
+        // 4.判断Authorization头是否存在，且格式是否正确。
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
             log.info("请求头token为空,返回未登录的信息");
             Result error = Result.error("NOT_LOGIN");
             //手动转换 对象--json --------> 阿里巴巴fastJSON
@@ -42,8 +40,10 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             response.getWriter().write(notLogin);
             return false;
         }
+        // 5.提取JWT令牌
+        String jwt = authorizationHeader.substring(7); // 去掉"Bearer "前缀
 
-        //5.解析token，如果解析失败，返回错误结果（未登录）。
+        //6.解析token，如果解析失败，返回错误结果（未登录）。
         try {
             JwtUtils.parseJWT(jwt);
         } catch (Exception e) {//jwt解析失败
