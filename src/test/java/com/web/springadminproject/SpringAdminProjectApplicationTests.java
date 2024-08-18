@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -15,7 +17,11 @@ class SpringAdminProjectApplicationTests {
     private UserService userService;
     @Test
     void contextLoads() {
-        List<Integer> ids = List.of(2,3);
-        userService.delete(ids);
+        User user = userService.getById(1);
+        user.setId(null);
+        user.setUsername("test");
+        user.setEmail("123");
+        user.setPhone("123");
+        userService.save(user);
     }
 }

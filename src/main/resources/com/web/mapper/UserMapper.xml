@@ -8,4 +8,17 @@
             #{id}
         </foreach>
     </delete>
+    <update id="update" parameterType="com.web.pojo.User">
+        UPDATE tb_user
+        SET
+            username = #{username},
+            password = #{password},
+            role = #{role},
+            gender = #{gender},
+            email = #{email},
+            phone = #{phone},
+            updated_time = #{updatedTime}
+        WHERE id = #{id};
+    </update>
 </mapper>
+

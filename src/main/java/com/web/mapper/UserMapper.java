@@ -35,6 +35,5 @@ public interface UserMapper {
     User getById(Integer id);
 
     // 更新用户
-    @Update("update tb_user set gender = #{gender} where id = #{id}")
     void update(User user);
 }
