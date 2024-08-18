@@ -57,7 +57,6 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             return false;
         }
         //6.放行。
-        log.info("令牌合法, 放行");
         return true;
     }
 
