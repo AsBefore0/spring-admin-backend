@@ -30,7 +30,7 @@
                 AND gender = #{gender}
             </if>
             <if test="createdTime != null">
-                AND created_time = #{createdTime}
+                AND DATE(created_time) = #{createdTime}
             </if>
         </where>
     </select>

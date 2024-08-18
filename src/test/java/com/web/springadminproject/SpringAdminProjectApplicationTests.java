@@ -17,7 +17,7 @@ class SpringAdminProjectApplicationTests {
     private UserService userService;
     @Test
     void contextLoads() {
-        userService.page(1,1,null,null,null);
-
+//        PageBean b = userService.page(2,4,null,null,null);
+//        System.out.println(b.getRows());
     }
 }

@@ -7,7 +7,10 @@ spring:
     url: jdbc:mysql://localhost:3306/admindb
     username: myuser
     password: 123qwe
-
+#logging:
+#  level:
+#    org.mybatis: DEBUG
+#    com.web.mapper: DEBUG  # 替换为你的 Mapper 包路径
 springdoc:
   swagger-ui:
     path: /swagger-ui.html

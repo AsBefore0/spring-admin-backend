@@ -21,7 +21,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURL().toString();
         // 1. 处理 CORS 预检请求
-        log.info("请求的url: {}",url);
+        // log.info("请求的url: {}",url);
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
             return true;
@@ -62,11 +62,9 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 
     @Override //目标资源方法运行后运行
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHandle ...");
     }
 
     @Override //视图渲染完毕后运行, 最后运行
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("afterCompletion...");
     }
 }
