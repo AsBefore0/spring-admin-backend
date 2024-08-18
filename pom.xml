@@ -43,11 +43,6 @@
         </dependency>
 
 
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jaxb</groupId>-->
-<!--            <artifactId>jaxb-runtime</artifactId>-->
-<!--            <version>3.0.2</version> &lt;!&ndash; 或者使用最新版本 &ndash;&gt;-->
-<!--        </dependency>-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -70,7 +65,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.4.2</version>
+            <version>1.4.7</version>
         </dependency>
 
         <!--JWT令牌-->

@@ -8,7 +8,7 @@ import java.util.List;
 // 用户管理
 public interface UserService {
     // 分页查询
-    PageBean page(Integer page, Integer pageSize,String name, Short gender,LocalDate begin,LocalDate end);
+    PageBean page(Integer page, Integer pageSize,String username, Short gender,LocalDate createdTime);
     // 批量删除
     int delete(List<Integer> ids);
     // 新增用户

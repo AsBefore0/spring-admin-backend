@@ -23,13 +23,11 @@ public class UserController {
 
     @GetMapping
     public Result page(@RequestParam(defaultValue = "1") Integer page,
-                       @RequestParam(defaultValue = "10") Integer pageSize,
-                       String name, Short gender,
-                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
-                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){
-        log.info("分页查询, 参数: {},{},{},{},{},{}",page,pageSize,name,gender,begin,end);
+                       @RequestParam(defaultValue = "6") Integer pageSize,
+                       String username, Short gender,
+                       @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate createdTime){
         //调用service分页查询
-        PageBean pageBean = userService.page(page,pageSize,name,gender,begin,end);
+        PageBean pageBean = userService.page(page,pageSize,username,gender,createdTime);
         return Result.success(pageBean);
     }
 

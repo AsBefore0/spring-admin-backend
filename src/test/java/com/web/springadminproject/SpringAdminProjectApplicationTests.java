@@ -17,11 +17,7 @@ class SpringAdminProjectApplicationTests {
     private UserService userService;
     @Test
     void contextLoads() {
-        User user = userService.getById(1);
-        user.setId(null);
-        user.setUsername("test");
-        user.setEmail("123");
-        user.setPhone("123");
-        userService.save(user);
+        userService.page(1,1,null,null,null);
+
     }
 }

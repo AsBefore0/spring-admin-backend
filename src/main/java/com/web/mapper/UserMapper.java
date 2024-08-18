@@ -12,13 +12,10 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    // 分页查询,获取列表数据
-    @Select("select * from tb_user limit #{start},#{pageSize}")
-    public List<User> page(Integer start, Integer pageSize);
-
-    // 用户信息查询
-    @Select("select * from tb_user")
-    public List<User> list(String name, Short gender, LocalDate begin, LocalDate end);
+    // 用户信息分页条件查询
+    List<User> list(@Param("username") String username,
+                    @Param("gender") Short gender,
+                    @Param("createdTime") LocalDate createdTime);
 
 
     // 批量删除

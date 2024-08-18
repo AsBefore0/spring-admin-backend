@@ -20,5 +20,18 @@
             updated_time = #{updatedTime}
         WHERE id = #{id};
     </update>
+    <select id="list" parameterType="map" resultType="com.web.pojo.User">
+        SELECT * FROM tb_user
+        <where>
+            <if test="username != null and username != ''">
+                AND username LIKE CONCAT('%', #{username}, '%')
+            </if>
+            <if test="gender != null">
+                AND gender = #{gender}
+            </if>
+            <if test="createdTime != null">
+                AND created_time = #{createdTime}
+            </if>
+        </where>
+    </select>
 </mapper>
-
