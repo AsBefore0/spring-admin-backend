@@ -26,11 +26,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             response.setStatus(HttpServletResponse.SC_OK);
             return true;
         }
-        //2.判断请求url中是否包含login，如果包含，说明是登录操作，放行。
-        if(url.contains("login")){
-            log.info("登录操作, 放行...");
-            return true;
-        }
+        //2.判断请求url中是否包含login，拦截器里已经配置了 这里不用再判断了
         // 3.获取请求头中的Authorization字段。
         String authorizationHeader = request.getHeader("Authorization");
         // 4.判断Authorization头是否存在，且格式是否正确。

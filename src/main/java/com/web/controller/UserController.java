@@ -4,6 +4,8 @@ import com.web.pojo.User;
 import com.web.pojo.PageBean;
 import com.web.pojo.Result;
 import com.web.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,10 +19,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@Tag(name = "用户管理", description = "用户管理API")
 public class UserController {
 
     private final UserService userService;
 
+    @Operation(summary = "分页查询用户信息")
     @GetMapping
     public Result page(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "6") Integer pageSize,
@@ -31,6 +35,7 @@ public class UserController {
         return Result.success(pageBean);
     }
 
+    @Operation(summary = "批量删除用户信息")
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
         log.info("批量删除操作, ids:{}",ids);
@@ -38,6 +43,7 @@ public class UserController {
         return Result.success();
     }
 
+    @Operation(summary = "新增用户信息")
     @PostMapping
     public Result save(@RequestBody User user){
         log.info("新增员工, emp: {}", user);
@@ -45,6 +51,7 @@ public class UserController {
         return Result.success();
     }
 
+    @Operation(summary = "根据ID查询用户信息")
     @GetMapping("/{id}")
     public Result getById(@PathVariable Integer id){
         log.info("根据ID查询员工信息, id: {}",id);
@@ -52,6 +59,7 @@ public class UserController {
         return Result.success(user);
     }
 
+    @Operation(summary = "更新用户信息")
     @PutMapping
     public Result update(@RequestBody User user){
         log.info("更新员工信息 : {}", user);

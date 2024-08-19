@@ -7,10 +7,8 @@ spring:
     url: jdbc:mysql://localhost:3306/admindb
     username: myuser
     password: 123qwe
-#logging:
-#  level:
-#    org.mybatis: DEBUG
-#    com.web.mapper: DEBUG  # 替换为你的 Mapper 包路径
+
+# 文档地址
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -40,8 +38,15 @@ knife4j:
     language: zh_cn
     enable-version: true
     enable-swagger-models: true
-    swagger-model-name: 用户模块
+    swagger-model-name: 实体类
+
+# mybatis-plus配置
 mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+# 调试生成的sql
+#logging:
+#  level:
+#    org.mybatis: DEBUG
+#    com.web.mapper: DEBUG  # 替换为你的 Mapper 包路径
